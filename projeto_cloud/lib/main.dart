@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_cloud/login_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
