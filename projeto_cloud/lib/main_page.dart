@@ -244,8 +244,9 @@ class MainPageForUser extends State<MainPageForUserState> {
         height: screenHeight * 0.1,
         child: ElevatedButton(
           onPressed: () async {
-            //search no db
-            fetchFinalSearch("Ford", "Mustang", 2023);
+
+            if (!mounted) return;
+            await fetchFinalSearch(selectedBrandOnDropdownList, selectedModelOnDropdownList, int.parse(yearProduction));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xfff9a72d),
