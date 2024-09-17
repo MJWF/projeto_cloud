@@ -40,7 +40,7 @@ class MainPageForUser extends State<MainPageForUserState> {
 
   Future<void> fetchDataFromAPI() async {
     final response = await http.post(
-        Uri.parse('http://192.168.132.137:5000/return_marca'));
+        Uri.parse('http://192.168.0.2:5000/return_marca'));
         
     if (!mounted) return;
     setState(() {
@@ -53,7 +53,7 @@ class MainPageForUser extends State<MainPageForUserState> {
   }
 
   Future<void> fetchModelsFromBrand(String brand) async {
-    final response = await http.post(Uri.parse('http://192.168.132.137:5000/return_modelo'),
+    final response = await http.post(Uri.parse('http://192.168.0.2:5000/return_modelo'),
         body: {
           'marca': brand,
         });
@@ -79,7 +79,7 @@ class MainPageForUser extends State<MainPageForUserState> {
       model = "";
     }
 
-    final response = await http.post(Uri.parse('http://192.168.132.137:5000/return_carro_avancado'),
+    final response = await http.post(Uri.parse('http://192.168.0.2:5000/return_carro_avancado'),
         body: {
           'marca': brand,
           'modelo': model,
