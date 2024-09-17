@@ -331,7 +331,7 @@ class MainPageForUser extends State<MainPageForUserState> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Torque máximo (kgfm): ${allSeachedModels[index]['torque_nm_carro'].toString()} kgfm",
+                        "Torque máximo (nm): ${allSeachedModels[index]['torque_nm_carro'].toString()} nm",
                       ),
                     ),
                     Padding(
