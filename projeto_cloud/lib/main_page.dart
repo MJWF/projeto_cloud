@@ -290,7 +290,7 @@ class MainPageForUser extends State<MainPageForUserState> {
                 Padding(
                   padding: EdgeInsets.only(left: 10, top: 10),
                   child: Text(
-                    "${allSeachedModels['modelo_carro']}", //vai verificar se é representante, novo style
+                    "${allSeachedModels[index]['modelo_carro'].toString()}",
                   ),
                 ),
                 Expanded(
@@ -299,7 +299,7 @@ class MainPageForUser extends State<MainPageForUserState> {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Text(
-                        "Ano: ${allSeachedModels['ano_carro']}",
+                        "Ano: ${allSeachedModels[index]['ano_carro'].toString()}",
                         //style: idStyle,
                       ),
                     ),
@@ -313,68 +313,68 @@ class MainPageForUser extends State<MainPageForUserState> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Marca: ${allSeachedModels[index]['marca_carro']}",
+                        "Marca: ${allSeachedModels[index]['marca_carro'].toString()}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 20),
                       child: Text(
-                        "Motor: ${allSeachedModels[index]['motor_carro']}",
+                        "Motor: ${allSeachedModels[index]['motor_carro'].toString()}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Potência (HP): ${allSeachedModels[index]['potencia_hp_carro']} HP",
+                        "Potência (HP): ${allSeachedModels[index]['potencia_hp_carro'].toString()} HP",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Torque máximo (kgfm): ${allSeachedModels[index]['torque_nm_carro']} kgfm",
+                        "Torque máximo (kgfm): ${allSeachedModels[index]['torque_nm_carro'].toString()} kgfm",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Combustível: ${allSeachedModels[index]['combustivel_carro']}",
+                        "Combustível: ${allSeachedModels[index]['combustivel_carro'].toString()}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Câmbio: ${allSeachedModels[index]['cambio_carro']}",
+                        "Câmbio: ${allSeachedModels[index]['cambio_carro'].toString()}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Tração: ${allSeachedModels[index]['tracao_carro']}",
+                        "Tração: ${allSeachedModels[index]['tracao_carro'].toString()}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Peso (Kg): ${allSeachedModels[index]['peso_carro']} Kg",
+                        "Peso (Kg): ${allSeachedModels[index]['peso_carro'].toString()} Kg",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
                         //colocar dois consumos no db
-                        "Consumo (Km/L): ${allSeachedModels[index]['consumo_km_l_carro']} Km/L",
+                        "Consumo (Km/L): ${allSeachedModels[index]['consumo_km_l_carro'].toString()} Km/L",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Aceleração 0 a 100: ${allSeachedModels[index]['aceleracao_0_100_carro']} segundos",
+                        "Aceleração 0 a 100: ${allSeachedModels[index]['aceleracao_0_100_carro'].toString()} segundos",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Velocidade máxima (km/h): ${allSeachedModels[index]['velocidade_maxima_km_h_carro']} km/h",
+                        "Velocidade máxima (km/h): ${allSeachedModels[index]['velocidade_maxima_km_h_carro'].toString()} km/h",
                       ),
                     ),
                   ]),
