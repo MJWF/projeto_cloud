@@ -58,12 +58,11 @@ class MainPageForUser extends State<MainPageForUserState> {
           'marca': brand,
         });
 
-    if (!mounted) return;
     setState(() {
       carListDynamic = json.decode(response.body);
 
       for (int i = 0; i < carListDynamic.length; i++) {
-        carModelsList.add(carBrandsListDynamic[i]['modelo']);
+        carModelsList.add(carListDynamic[i]['modelo']);
       }
     });
   }
@@ -77,7 +76,7 @@ class MainPageForUser extends State<MainPageForUserState> {
     if(model == "Escolha o modelo"){
       model = "";
     }
-    
+
     final response = await http.post(Uri.parse('http://192.168.132.137:5000/return_carro_avancado'),
         body: {
           'marca': brand,
