@@ -18,7 +18,7 @@ class MainPageForUser extends State<MainPageForUserState> {
   List<String> carModelsList = [];
   List<dynamic> carBrandsListDynamic = [];
   List<dynamic> carListDynamic = [];
-  Map<String, dynamic> allSeachedModels = {};
+  List<dynamic> allSeachedModels = [];
 
   bool representativeButtonVisibility = true;
   bool removeRepresentativeButtonVisibility = false;
