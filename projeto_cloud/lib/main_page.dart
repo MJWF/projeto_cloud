@@ -59,6 +59,8 @@ class MainPageForUser extends State<MainPageForUserState> {
         });
 
     setState(() {
+      carListDynamic = [];
+      carModelsList = [];
       carListDynamic = json.decode(response.body);
 
       for (int i = 0; i < carListDynamic.length; i++) {
