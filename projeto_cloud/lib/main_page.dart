@@ -35,7 +35,7 @@ class MainPageForUser extends State<MainPageForUserState> {
   @override
   void initState() {
     super.initState();
-    fetchDataFromAPI();
+    //fetchDataFromAPI();
   }
 
   Future<void> fetchDataFromAPI() async {
@@ -44,7 +44,7 @@ class MainPageForUser extends State<MainPageForUserState> {
         
     if (!mounted) return;
     setState(() {
-      carBrandsList = json.decode(response.body);
+      carBrandsListDynamic = json.decode(response.body);
 
       for(int i = 0; i < carBrandsListDynamic.length; i++) {
         carBrandsList.add(carBrandsListDynamic[i]['marca']);
@@ -78,7 +78,7 @@ class MainPageForUser extends State<MainPageForUserState> {
 
     if (!mounted) return;
     setState(() {
-      allSeachedModels = json.decode(response.body);
+      allSeachedModels = {"aceleracao_0_100_carro":"4.30","ano_carro":2023,"cambio_carro":"Manual","combustivel_carro":"Gasolina","consumo_km_l_carro":"8.50","id_carro":3,"marca_carro":"Ford","modelo_carro":"Mustang","motor_carro":"5.0 V8","peso_carro":1650,"potencia_hp_carro":450,"torque_nm_carro":530,"tracao_carro":"4x2","velocidade_maxima_km_h_carro":250};
     });
   }
 
@@ -90,7 +90,7 @@ class MainPageForUser extends State<MainPageForUserState> {
     TextStyle dropdownStyle =
         const TextStyle(fontWeight: FontWeight.normal, color: Colors.black);
 
-    SearchAnchor mainSearchBar() {
+    /*SearchAnchor mainSearchBar() {
       return SearchAnchor(
           builder: (BuildContext context, SearchController controller) {
         return SearchBar(
@@ -119,7 +119,7 @@ class MainPageForUser extends State<MainPageForUserState> {
           );
         });
       });
-    }
+    }*/
 
     Center dropDownBrandsButton() {
       return Center(
@@ -245,6 +245,7 @@ class MainPageForUser extends State<MainPageForUserState> {
         child: ElevatedButton(
           onPressed: () async {
             //search no db
+            fetchFinalSearch("Ford", "Mustang", 2023);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xfff9a72d),
@@ -274,11 +275,11 @@ class MainPageForUser extends State<MainPageForUserState> {
           ),
           width: screenHeight * 0.75,
           child: ListTile(
-              title: const Row(children: [
+              title: Row(children: [
                 Padding(
                   padding: EdgeInsets.only(left: 10, top: 10),
                   child: Text(
-                    "Honda Civic LXS 1.8", //vai verificar se é representante, novo style
+                    "${allSeachedModels['modelo_carro']}", //vai verificar se é representante, novo style
                   ),
                 ),
                 Expanded(
@@ -287,82 +288,82 @@ class MainPageForUser extends State<MainPageForUserState> {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Text(
-                        "Ano: 2007",
+                        "Ano: ${allSeachedModels['ano_carro']}",
                         //style: idStyle,
                       ),
                     ),
                   ),
                 ),
               ]),
-              subtitle: const Column(
+              subtitle: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Marca: Honda",
+                        "Marca: ${allSeachedModels['marca_carro']}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 20),
                       child: Text(
-                        "Motor: 4 Cilindros In-Line 1.8 Aspirado",
+                        "Motor: ${allSeachedModels['motor_carro']}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Potência (HP): 140 HP",
+                        "Potência (HP): ${allSeachedModels['potencia_hp_carro']} HP",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Torque máximo (kgfm): 17,7 kgfm",
+                        "Torque máximo (kgfm): ${allSeachedModels['torque_nm_carro']} kgfm",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Combustível: Gasolina",
+                        "Combustível: ${allSeachedModels['combustivel_carro']}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Câmbio: Manual com 5 marchas",
+                        "Câmbio: ${allSeachedModels['cambio_carro']}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Tração: Dianteira",
+                        "Tração: ${allSeachedModels['tracao_carro']}",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Peso (Kg): 1230 Kg",
+                        "Peso (Kg): ${allSeachedModels['peso_carro']} Kg",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
                         //colocar dois consumos no db
-                        "Consumo (Km/L): 9,8 Km/L",
+                        "Consumo (Km/L): ${allSeachedModels['consumo_km_l_carro']} Km/L",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Aceleração 0 a 100: 10,3 segundos",
+                        "Aceleração 0 a 100: ${allSeachedModels['aceleracao_0_100_carro']} segundos",
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
-                        "Velocidade máxima (km/h): 202 km/h",
+                        "Velocidade máxima (km/h): ${allSeachedModels['velocidade_maxima_km_h_carro']} km/h",
                       ),
                     ),
                   ]),
@@ -417,9 +418,9 @@ class MainPageForUser extends State<MainPageForUserState> {
                 width: screenWidth * 0.5,
                 height: screenHeight * 0.7,
                 child:ListView.builder(
-                  itemCount: carListDynamic.length,
+                  itemCount: allSeachedModels.length,
                   itemBuilder: (context, index) {
-                    return returnListWithCars(0);
+                    return returnListWithCars(index);
                   },
                 )
               )

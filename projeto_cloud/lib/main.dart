@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_cloud/login_page.dart';
-import 'package:projeto_cloud/register_page.dart';
 
 
 void main() {
