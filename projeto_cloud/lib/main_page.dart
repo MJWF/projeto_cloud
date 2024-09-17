@@ -69,6 +69,15 @@ class MainPageForUser extends State<MainPageForUserState> {
   }
 
   Future<void> fetchFinalSearch(String brand, String model, int year) async {
+
+    if(brand == "Escolha a marca"){
+      brand = "";
+    }
+
+    if(model == "Escolha o modelo"){
+      model = "";
+    }
+    
     final response = await http.post(Uri.parse('http://192.168.132.137:5000/return_carro_avancado'),
         body: {
           'marca': brand,
@@ -151,6 +160,8 @@ class MainPageForUser extends State<MainPageForUserState> {
                 setState(() {
                   selectedBrandOnDropdownList = selectedValueOnDropdownList!;
                   selectedIndexOnDropdownList = carBrandsList.indexOf(selectedValueOnDropdownList);
+                  fetchModelsFromBrand(selectedBrandOnDropdownList);
+                  if (!mounted) return;
                   isBrandSelected = true;
                 });
               },
