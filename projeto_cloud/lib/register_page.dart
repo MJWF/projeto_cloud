@@ -210,7 +210,7 @@ class RegisterPageState extends State<RegisterPageCreateState> {
               await createErrorPopUpDialog(context);
 
             } else {
-            final url = Uri.parse('http://192.168.132.138:5000/cadastro');
+            final url = Uri.parse('http://192.168.132.138:8080/api/cadastro');
 
               final response = await http.post(url, body: {
                 'email': emailCadastro,
